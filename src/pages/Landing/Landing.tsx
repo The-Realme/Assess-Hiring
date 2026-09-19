@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Logo from "../../components/ui/Logo";
-
+import { useNavigate } from "react-router-dom";
 const skills = [
   { name: "Python", score: 91 },
   { name: "SQL", score: 87 },
@@ -16,6 +16,7 @@ const skills = [
 ];
 
 function Landing() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white text-zinc-950">
 
@@ -126,7 +127,9 @@ function Landing() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row"
               >
-                <button className="group flex w-full items-center justify-center gap-2 rounded-lg bg-zinc-950 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 sm:w-auto">
+                <button 
+                onClick={() => navigate("/recruiter")}
+                className="group flex w-full items-center justify-center gap-2 rounded-lg bg-zinc-950 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-zinc-800 sm:w-auto">
                   Start hiring
                   <ArrowRight
                     size={15}
@@ -134,7 +137,9 @@ function Landing() {
                   />
                 </button>
 
-                <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 sm:w-auto">
+                <button 
+                onClick={() => navigate("/candidate")}
+                className="flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-700 transition hover:bg-zinc-50 sm:w-auto">
                   Take an assessment
                 </button>
               </motion.div>

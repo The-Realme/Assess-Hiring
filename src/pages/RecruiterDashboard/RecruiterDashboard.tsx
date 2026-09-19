@@ -7,8 +7,8 @@ import {
   Search,
   Users,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../components/ui/Logo";
-
 const jobs = [
   {
     title: "Backend Engineer",
@@ -52,6 +52,7 @@ const candidates = [
 ];
 
 function RecruiterDashboard() {
+const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-white text-zinc-950">
 
@@ -176,10 +177,19 @@ function RecruiterDashboard() {
                 </p>
               </div>
 
-              <button className="flex w-fit items-center gap-2 rounded-lg bg-zinc-950 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">
+              <button 
+              onClick={() => navigate("/recruiter/jobs/new")}
+              className="flex w-fit items-center gap-2 rounded-lg bg-zinc-950 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-zinc-800">
                 Create job
                 <ChevronRight size={15} />
               </button>
+              <button
+  onClick={() => navigate("/recruiter/matches")}
+  className="flex items-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-700 transition hover:border-zinc-300 hover:bg-zinc-50"
+>
+  View matches
+  <ChevronRight size={15} />
+</button>
 
             </div>
 
@@ -296,6 +306,7 @@ function RecruiterDashboard() {
                         </span>
 
                         <ChevronRight
+                        // onClick={() => navigate("/recruiter/candidates/arjun-mehta")}
                           size={15}
                           className="text-zinc-300 transition group-hover:translate-x-0.5 group-hover:text-zinc-600"
                         />
